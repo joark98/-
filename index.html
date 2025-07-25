@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 운세 - 생년월일로 알아보는 나의 운세</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 메인 화면 -->
+    <div id="main-screen" class="screen active">
+        <div class="container">
+            <div class="main-content">
+                <div class="zodiac-image">
+                    <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1c039473-b167-4549-8dd7-32f8afb0f325.png" alt="십이지신" class="zodiac-img">
+                </div>
+                
+                <div class="main-title">
+                    <h1>오늘의 운세</h1>
+                    <p>생년월일로 알아보는 나의 운세</p>
+                </div>
+
+                <div class="birth-form card">
+                    <h2>생년월일을 선택해주세요</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">출생년도</label>
+                            <select id="birth-year" class="form-control">
+                                <option value="">연도 선택</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">출생월</label>
+                            <select id="birth-month" class="form-control">
+                                <option value="">월 선택</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">출생일</label>
+                            <select id="birth-day" class="form-control">
+                                <option value="">일 선택</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button id="fortune-btn" class="btn btn--primary btn--lg btn--full-width fortune-button">
+                        ✨ 운세 보기 ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 운세 결과 화면 -->
+    <div id="result-screen" class="screen">
+        <div class="container">
+            <div class="result-content">
+                <!-- 사용자 정보 -->
+                <div class="user-info card fade-in">
+                    <div class="zodiac-info">
+                        <div class="zodiac-symbol">🐭</div>
+                        <div class="zodiac-text">
+                            <h3 id="user-zodiac">쥐띠</h3>
+                            <p id="user-birthdate">1996년 7월 22일</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 종합 운세 -->
+                <div class="overall-fortune card slide-in-left">
+                    <div class="fortune-header">
+                        <h2>🌟 오늘의 종합운세</h2>
+                    </div>
+                    <p id="overall-text" class="fortune-text">
+                        오늘은 당신에게 새로운 기회의 문이 열리는 날입니다...
+                    </p>
+                </div>
+
+                <!-- 세부 운세들 -->
+                <div class="detailed-fortunes">
+                    <!-- 애정운 -->
+                    <div class="fortune-item card slide-in-right">
+                        <div class="fortune-item-header">
+                            <h3>❤️ 애정운</h3>
+                            <div class="stars" id="love-stars">★★★★☆</div>
+                        </div>
+                        <p id="love-text" class="fortune-description">
+                            연인과의 관계가 한층 깊어지는 시기입니다...
+                        </p>
+                    </div>
+
+                    <!-- 사업운 -->
+                    <div class="fortune-item card slide-in-left">
+                        <div class="fortune-item-header">
+                            <h3>💼 사업운</h3>
+                            <div class="stars" id="business-stars">★★★★★</div>
+                        </div>
+                        <p id="business-text" class="fortune-description">
+                            당신의 노력이 빛을 발하는 날입니다...
+                        </p>
+                    </div>
+
+                    <!-- 건강운 -->
+                    <div class="fortune-item card slide-in-right">
+                        <div class="fortune-item-header">
+                            <h3>🏃 건강운</h3>
+                            <div class="stars" id="health-stars">★★★☆☆</div>
+                        </div>
+                        <p id="health-text" class="fortune-description">
+                            과로에 주의하세요...
+                        </p>
+                    </div>
+
+                    <!-- 재물운 -->
+                    <div class="fortune-item card slide-in-left">
+                        <div class="fortune-item-header">
+                            <h3>💰 재물운</h3>
+                            <div class="stars" id="money-stars">★★★★☆</div>
+                        </div>
+                        <p id="money-text" class="fortune-description">
+                            예상치 못한 수입이 들어올 수 있습니다...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 행운 정보 -->
+                <div class="lucky-info card fade-in">
+                    <div class="lucky-items">
+                        <div class="lucky-item">
+                            <div class="lucky-label">🍀 행운의 숫자</div>
+                            <div class="lucky-value" id="lucky-number">7</div>
+                        </div>
+                        <div class="lucky-divider"></div>
+                        <div class="lucky-item">
+                            <div class="lucky-label">🎨 행운의 색깔</div>
+                            <div class="lucky-value" id="lucky-color">하늘색</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 다시 보기 버튼 -->
+                <div class="action-buttons">
+                    <button id="reset-btn" class="btn btn--outline btn--lg btn--full-width">
+                        🔄 다시 보기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
